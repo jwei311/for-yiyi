@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="">
+<title>不知道写什么title</title>
+<style>
+:root{--paper:#f7f1e8;--sheet:#fcf8f0;--ink:#423731;--wine:#783d49;--muted:#79695e;--line:#d9ccbb;--serif:"Songti SC","STSong","SimSun","Noto Serif CJK SC",serif;--sans:"Microsoft YaHei","PingFang SC",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scrollbar-color:#b9a393 var(--paper)}body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);font-size:14px}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}button:disabled{cursor:default;opacity:.4}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--wine);outline-offset:6px}::selection{background:#e6c9cb;color:#542b35}button,a{touch-action:manipulation}a{color:inherit;text-underline-offset:5px}[hidden]{display:none!important}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23857361' opacity='.22' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+.shell{width:min(1180px,calc(100% - 96px));margin:auto}.masthead{height:100px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-family:var(--serif);font-size:20px;letter-spacing:.24em;display:flex;align-items:center;gap:14px}.brand svg{width:27px;height:24px;color:var(--wine)}.edition{font-size:11px;letter-spacing:.15em;color:var(--muted)}.cover{min-height:calc(100svh - 174px);display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:60px;padding:75px 0 85px}.intro{padding-bottom:20px}.intro h1{font-family:var(--serif);font-weight:400;letter-spacing:.07em;font-size:clamp(40px,4.6vw,64px);line-height:1.45;margin:0 0 28px}.intro h1 span{display:block;color:var(--wine)}.intro p{color:var(--muted);font-size:14px;line-height:2.15;letter-spacing:.04em;margin:0}.handwritten{font-family:Georgia,var(--serif);font-style:italic;font-weight:400}.intro .handwritten{margin-top:35px;font-size:22px;color:var(--wine);letter-spacing:0}.envelope-scene{padding:70px 0 40px;text-align:center;perspective:1200px}.envelope{width:100%;aspect-ratio:1.53;position:relative;background:#e9dfcf;box-shadow:0 22px 38px -22px #68524370;transform:rotate(-5deg);isolation:isolate;transition:transform .65s ease}.envelope:hover{transform:rotate(-3deg) translateY(-3px)}.letter-peek{position:absolute;inset:12px 18px;background:var(--sheet);padding:27px 10px;font-family:var(--serif);font-size:19px;color:var(--wine);transition:transform .65s ease;z-index:1}.envelope-front{position:absolute;inset:0;background:#f0e6d6;clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%);z-index:3}.envelope-fold{position:absolute;inset:0;z-index:4;pointer-events:none}.envelope-fold:before,.envelope-fold:after{content:"";position:absolute;bottom:0;width:58%;height:1px;background:#d6c5af;transform-origin:left bottom;transform:rotate(-33deg)}.envelope-fold:after{right:0;transform-origin:right bottom;transform:rotate(33deg)}.flap{position:absolute;inset:0;background:#f8eedf;clip-path:polygon(0 0,100% 0,50% 59%);z-index:5;transform-origin:top;transition:transform .7s ease,z-index 0s .35s;filter:drop-shadow(0 2px 1px #9e8a6a30)}.seal{position:absolute;left:50%;top:45%;width:73px;height:73px;transform:translate(-50%,-18%);z-index:6;border:0;border-radius:47% 51% 45% 52%;background:#874b58;box-shadow:inset 2px 3px 3px #ad7783,inset -2px -3px 4px #572e39,0 5px 7px #61413429;display:grid;place-items:center;transition:opacity .25s,transform .3s}.seal:before{content:"";position:absolute;inset:8px;border:1px solid #b17984;border-radius:50%;box-shadow:inset 0 1px 2px #522d3b80}.seal svg{height:32px;width:32px;fill:none;stroke:#e3bdbe;stroke-width:1.1;position:relative}.seal:hover{transform:translate(-50%,-18%) scale(1.06)}.recipient{position:absolute;bottom:23px;left:28px;z-index:4;font-family:var(--serif);letter-spacing:.18em;font-size:17px}.envelope-annotation{position:absolute;bottom:24px;right:27px;z-index:4;color:#786353;font:italic 15px Georgia,serif}.open-hint{margin-top:50px;font-size:12px;letter-spacing:.17em;color:var(--muted)}.text-button{border:0;background:none;padding:12px 3px;min-height:44px;color:var(--wine);border-bottom:1px solid #b99597;letter-spacing:.1em}.text-button:hover{border-color:var(--wine)}.opening .flap{transform:rotateX(180deg);z-index:0}.opening .seal{opacity:0;pointer-events:none}.opening .letter-peek{transform:translateY(-65px)}.opening .envelope{transform:rotate(0)}.cover-footer{min-height:74px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);font-size:11px;color:var(--muted);letter-spacing:.04em}.cover-footer .handwritten{font-size:16px;letter-spacing:0}
+.reading{padding:45px 0 65px}.reading-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}.back{border:0;background:none;color:var(--muted);padding:12px 0;min-height:44px}.back:hover{color:var(--wine)}.reading-top>span{font-size:12px;letter-spacing:.12em;color:var(--muted)}.book{display:grid;grid-template-columns:150px minmax(0,750px);justify-content:center;gap:50px}.chapters{padding-top:38px;display:flex;flex-direction:column;gap:8px}.chapter{background:none;text-align:left;border:0;padding:14px 0;color:var(--muted);min-height:44px;letter-spacing:.04em;font-size:12px}.chapter small{margin-right:12px;font-family:Georgia,serif;font-size:13px}.chapter[aria-current="step"]{color:var(--wine)}.chapter[aria-current="step"]:after{content:"";display:block;width:25px;height:1px;background:var(--wine);margin:10px 0 0 28px}.stationery{background:var(--sheet);box-shadow:0 12px 38px -20px #80644e45;padding:48px 70px 30px;min-height:650px;position:relative}.stationery:before{content:"";position:absolute;inset:7px;border:1px solid #e5dacb;pointer-events:none}.paper-top{display:flex;justify-content:space-between;color:var(--muted);font:italic 15px Georgia,serif;padding-bottom:25px;border-bottom:1px solid var(--line)}.paper-top span:last-child{font:11px var(--sans);letter-spacing:.1em}.page-content{min-height:395px;animation:ink .45s ease-out}.page-content h2{font:400 32px/1.6 var(--serif);color:var(--wine);letter-spacing:.1em;margin:34px 0 24px}.salutation{font-family:var(--serif);font-size:19px;letter-spacing:.1em}.prose{font-size:15px;line-height:2.25;letter-spacing:.04em}.prose p{margin:0 0 19px}.signature{text-align:right;font:23px/1.8 var(--serif);color:var(--wine);margin:28px 0 6px}.signature span{display:block;font:11px/2 var(--sans);color:var(--muted)}.margin-note{margin:24px 0 25px;padding:19px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--wine);font:18px/1.9 var(--serif)}.page-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);margin-top:25px;padding-top:17px}.page-nav button{background:none;border:0;min-height:44px;padding:10px 0;color:var(--wine);letter-spacing:.06em}.page-nav button:disabled{color:var(--muted)}.page-count{color:var(--muted);font:italic 15px Georgia,serif}.responses{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin-top:25px}.response{padding:13px 18px;border:1px solid #cbb7ad;background:none;text-align:left;min-height:48px;transition:background .2s;color:var(--wine)}.response:hover,.response[aria-pressed="true"]{background:#eee0db;border-color:var(--wine)}.response:first-child{background:var(--wine);border-color:var(--wine);color:var(--sheet)}.response:first-child:hover{background:#66313e}.answer{margin-top:20px;color:var(--wine);line-height:2;font-size:14px;min-height:28px}.privacy{font-size:11px;color:var(--muted);line-height:1.8;margin:12px 0 0}.reading-bottom{text-align:center;margin-top:30px;font:italic 17px Georgia,var(--serif);color:var(--muted)}.flower{width:36px;height:58px;display:block;margin:23px auto 0;fill:none;stroke:var(--wine);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}noscript{display:block;padding:30px;line-height:2;background:var(--sheet)}
+@keyframes ink{from{opacity:.45;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1500px){.cover{min-height:740px}}
+@media(max-width:900px){.shell{width:calc(100% - 56px)}.cover{gap:35px}.intro h1{font-size:42px}.envelope-annotation{display:none}.book{grid-template-columns:120px minmax(0,1fr);gap:22px}.stationery{padding:35px 38px 25px}}
+@media(max-width:760px){.shell{width:calc(100% - 40px)}.masthead{height:76px}.brand{font-size:17px;gap:10px}.edition{font-size:11px;letter-spacing:.04em}.cover{display:flex;flex-direction:column;gap:0;min-height:auto;padding:48px 0 20px}.intro{text-align:center;padding:0}.intro h1{font-size:39px;margin-bottom:20px;line-height:1.45}.intro p{font-size:12px}.intro .handwritten{font-size:19px;margin-top:18px}.envelope-scene{width:min(100% - 24px,390px);padding:53px 0 12px}.seal{width:61px;height:61px}.seal svg{width:27px}.recipient{bottom:18px;left:21px;font-size:15px}.open-hint{margin-top:31px;font-size:11px}.cover-footer{min-height:80px;gap:20px;font-size:11px;line-height:1.8}.cover-footer .handwritten{font-size:14px;white-space:nowrap}.reading{padding-top:14px}.reading-top{margin-bottom:10px}.book{display:flex;flex-direction:column;gap:18px}.chapters{flex-direction:row;justify-content:space-between;padding:0;gap:10px}.chapter{font-size:11px}.chapter small{margin-right:6px}.chapter[aria-current="step"]:after{margin-left:20px}.stationery{padding:27px 25px 20px;min-height:620px}.paper-top{font-size:13px;padding-bottom:20px}.paper-top span:last-child{font-size:11px}.page-content h2{font-size:27px;margin:25px 0 21px}.prose{font-size:14px;line-height:2.1}.page-content{min-height:390px}.signature{font-size:21px}.margin-note{font-size:17px}.page-nav{font-size:12px}.response{font-size:13px}.reading-bottom{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Continuous timeline on the original stationery. */
+.chapters{position:sticky;top:32px;align-self:start}
+a.chapter{text-decoration:none;font-family:var(--serif);font-size:16px;padding:12px 0}
+a.chapter:hover{color:var(--wine)}
+.timeline-intro{color:var(--muted);font-size:14px;line-height:2;margin:0 0 42px}
+.timeline-month{scroll-margin-top:28px}
+.timeline-month h3{font:400 24px/1.6 var(--serif);color:var(--wine);margin:42px 0 22px;letter-spacing:.1em}
+.timeline-list{list-style:none;margin:0 0 0 5px;padding:0;border-left:1px solid var(--line)}
+.timeline-entry{position:relative;padding:0 0 30px 28px}
+.timeline-entry:before{content:"";position:absolute;left:-4px;top:8px;width:7px;height:7px;background:var(--wine);border-radius:50%}
+.timeline-entry:last-child{padding-bottom:4px}
+.timeline-date{display:block;color:var(--wine);font:400 16px/1.5 var(--serif)}
+.timeline-entry p{font-size:15px;line-height:2.15;letter-spacing:.025em;margin:8px 0 0;overflow-wrap:anywhere}
+.timeline-end{border-top:1px solid var(--line);padding-top:25px;margin:44px 0 12px;color:var(--wine);font:16px/2 var(--serif)}
+@media(max-width:760px){.chapters{position:static;width:100%;gap:4px}a.chapter{font-size:14px;padding:12px 4px}.timeline-intro{font-size:13px;margin-bottom:30px}.timeline-month h3{font-size:22px;margin-top:32px}.timeline-entry{padding-left:20px;padding-bottom:26px}.timeline-entry p{font-size:14px;line-height:2.1}.timeline-date{font-size:15px}.timeline-end{font-size:14px}}
+
+.photo-window{margin:22px 0 0;overflow:hidden;padding:8px 8px 16px}
+.memory-photo{margin:0;background:var(--sheet);padding:9px 9px 18px;box-shadow:0 8px 18px -10px #68524370;transform:translateX(var(--slide,0px));opacity:var(--photo-opacity,1)}
+.memory-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#efe6da}
+.photo-placeholder{aspect-ratio:4/3;display:grid;place-content:center;text-align:center;gap:12px;background:#efe6da;color:var(--muted);font:16px/1.8 var(--serif)}
+.photo-placeholder small{font:12px/1.8 var(--sans)}
+.memory-photo figcaption{padding:14px 4px 0;font:14px/1.5 var(--serif);color:var(--wine)}
+.timeline-entry{padding-bottom:48px}
+@media(prefers-reduced-motion:reduce){.memory-photo{transform:none!important;opacity:1!important}}
+
+
+.memory-photo video{display:block;width:100%;max-height:70vh;background:#201b19;object-fit:contain}
+
+/* Keep timeline photos compact while preserving the full image. */
+.photo-window{width:78%;max-width:420px;margin-left:auto;margin-right:auto}
+@media(max-width:760px){.photo-window{width:85%;max-width:320px}}
+
+.special-entry{margin-top:30px;padding-top:28px!important;padding-bottom:34px!important;border-top:1px solid var(--line)}
+.special-entry .timeline-date{font:400 54px/1.2 Georgia,serif;letter-spacing:.04em}
+.special-entry p{font-family:var(--serif);margin:22px 0}
+.special-entry:before{top:46px}
+.special-day{max-width:750px;margin:42px auto 65px}
+.special-day h2{font:400 clamp(64px,12vw,100px)/1.2 Georgia,serif;color:var(--wine);margin:40px 0 20px}
+.special-subtitle{font:20px/1.8 var(--serif);color:var(--wine);margin-bottom:42px}
+#special-memories img{display:block;width:100%;max-height:65vh;object-fit:contain;margin:30px auto;background:var(--paper);animation:ink 1s ease-out}
+#special-memories p{font:17px/2.3 var(--sans);margin:38px 0;white-space:pre-wrap}
+#special-next{display:block;margin:40px 0 10px auto}
+@media(max-width:760px){.special-day{margin-top:22px}.special-subtitle{font-size:17px}#special-memories p{font-size:15px}.special-entry .timeline-date{font-size:44px}}
+
+.confession-copy{font:17px/2.2 var(--sans);margin-top:35px}
+.confession-copy p{margin:0 0 28px}
+.confession-copy h3{font:400 clamp(24px,4vw,34px)/1.8 var(--serif);color:var(--wine);margin:36px 0 28px}
+.confession-hearts{display:flex;justify-content:center;gap:28px;color:var(--wine);font:36px/1.4 var(--serif);margin:25px 0 0}
+.confession-hearts span{animation:heart-rise 1.2s ease-out both}
+.confession-hearts span:nth-child(2){animation-delay:.12s}.confession-hearts span:nth-child(3){animation-delay:.24s}
+@keyframes heart-rise{from{opacity:0;transform:translateY(18px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.confession-copy{font-size:15px}}
+
+#confession-choices .response:disabled{opacity:1;cursor:default}
+
+#say-yes,#say-yes:hover,#say-yes[aria-pressed="true"]{background:transparent;color:var(--wine);border-color:#cbb7ad}
+
+.memory-sentence{display:block;width:100%;text-align:left;border:0;background:transparent;padding:8px 0;color:var(--ink);font:15px/2.15 var(--sans);overflow-wrap:anywhere}
+.memory-sentence:hover{color:var(--wine);text-decoration:underline;text-underline-offset:5px}
+.memory-hint{display:block;color:var(--muted);font-size:12px;margin:4px 0 14px}
+.memory-dialog{width:min(560px,calc(100% - 32px));max-height:85svh;overflow:auto;border:1px solid var(--line);padding:28px 34px;background:var(--sheet);color:var(--ink);box-shadow:0 20px 60px -20px #42373180}
+.memory-dialog::backdrop{background:#30221c80}
+.memory-dialog h2,.memory-dialog h3{font-family:var(--serif);font-weight:400;color:var(--wine)}
+.memory-dialog p{line-height:2;white-space:pre-wrap;overflow-wrap:anywhere}
+#quiz-form label{display:block;margin:24px 0 10px}#quiz-answer{width:100%;padding:12px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;min-height:46px}
+#quiz-answer:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+@media(max-width:760px){.memory-sentence{font-size:14px}.memory-dialog{padding:22px}}
+
+.envelope-fold{width:100%;height:100%;display:block;overflow:hidden}
+
+#reset-answer{border:0;background:transparent;padding:12px 0;min-height:44px}#reset-answer:disabled{opacity:1;cursor:default}
+
+#quiz-options .response{background:transparent;color:var(--wine)}.memory-static{font:15px/2.15 var(--sans)}
+
+#quiz-feedback:empty{display:none}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="masthead"><div class="brand"><svg viewBox="0 0 32 26" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M2 4h28v19H2zM2 4l14 11L30 4M2 23l10-10m18 10L20 13"/></svg>To: Yiyi</div><button class="edition" id="reset-answer" type="button" aria-label="From: Jing Wei，重置表白选择">From: Jing Wei</button></header>
+<main>
+<section class="cover" id="cover" aria-labelledby="cover-title">
+<div class="intro"><h1 id="cover-title">点开那个信okay</h1></div>
+<div class="envelope-scene"><div class="envelope" id="envelope"><div class="letter-peek" aria-hidden="true"></div><div class="envelope-front"></div><svg class="envelope-fold" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100 L50 56 L100 100" fill="none" stroke="#d6c5af" stroke-width="1" vector-effect="non-scaling-stroke"/></svg><div class="flap"></div><span class="recipient" id="envelope-to"></span><span class="envelope-annotation" lang="en"></span><button class="seal" id="seal" aria-label="拆开这封信" aria-controls="reading" aria-expanded="false"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 27S5 19 5 11c0-6 9-8 13-1 4-7 13-5 13 1 0 8-13 16-13 16Z"/><path d="M11 10c-2 0-3 2-3 4"/></svg></button></div><div class="open-hint"></div></div>
+</section>
+<section class="reading" id="reading" aria-label="我们的时间线" hidden>
+<div class="reading-top"><button class="back" id="close-letter">← </button><span></span></div>
+<div class="book"><nav class="chapters" aria-label="按月份阅读"><a class="chapter" href="#month-7">七月</a><a class="chapter" href="#month-8">八月</a><a class="chapter" href="#month-9">九月</a><a class="chapter" href="#month-10">十月</a><a class="chapter" href="#month-11">十一月</a></nav>
+<article class="stationery"><div class="paper-top"><span lang="en">Our little story,</span><span>七月 — 十一月</span></div><div class="page-content" id="page-content" tabindex="-1"><h2>时间线</h2><div id="timeline"></div></div></article></div>
+</section>
+<noscript>请启用 JavaScript，拆开信封，阅读我们从七月到十一月的时间线。</noscript>
+</main>
+
+</div>
+<script>
+// 按月份记录回忆；未注明年份的日期保留月、日，不推定年份。
+const memories = [
+ {month:7, date:'7月', text:'被拉去参加你办的唱歌比赛 我注意到你 你注意到我'},
+ {month:8, date:'8月', text:'我们没有交集 甚至不算朋友'},
+ {month:9, date:'9月23日', text:'我想给你猫月饼 你很开心接受料'},
+ {month:9, date:'在那之后', text:'然后我们开始聊天 聊到很投机'},
+ {month:10, date:'10月1日', text:'我们第一次单独出去 那天是after练习之后 明明才第一天 我们走到不舍得回家咯 不懂你记得吗'},
+ {month:10, date:'10月2日', text:'我们带 Winter 和阿灰去兽医 我觉得siao的才认识第几天就一起带猫看病 很暧昧 soli'},
+ {month:10, date:'10月7日', text:'我们去看电影'},
+ {month:10, date:'10月8日', text:'练习之后 我们去Mengkuang Dam散步 走很久 我的鞋真的不能走那么久 然后一起吃晚餐 那个char koay tiau很好吃'},
+ {month:10, date:'10月12日', text:'你带阿灰来到golden triangle冲凉 是不是故意要来找我 没有啦开玩笑 然后我们去Qb逛 结果走到超时咯 阿灰等你 so bad'},
+ {month:10, date:'10月14日', text:'你去学校Talent Day rehearsal 那天我去做project 然后我们一起去练习 然后跑去Design Village又是一顿乱逛  还有IKEA'},
+ {month:10, date:'10月17日', text:'这天Batu Ferringhi下雨walau 没有日落 我的打卡板不见了'},
+ {month:10, date:'10月20日', text:'我过去BM 找你吃晚餐 然后又一顿乱逛 走Auto City的时候'},
+ {month:10, date:'10月29日', text:'我们去PWCC和玩skate 我们都是newbie 我跌倒你笑我！！'},
+ {month:10, date:'10月30日', text:'我们去市集 莫名其妙看完那个唱歌比赛'},
+ {month:11, date:'11月4日', text:'又再去IKEA 然后去学校的fine dine 我觉得蛮好吃的 Elgin也是蛮好笑的'},
+ {month:11, date:'11月5日', text:'Practice again 然后一起吃晚餐。'},
+ {month:11, date:'11月6日', text:'我们一起去学校show demo给老师看 then yess! 我们可以一起表演料 然后晚上我们去 pasar malam'},
+ {month:11, date:'11月10日', text:'你来探店 then 我们去Gurney 牵你的手料今天 不能顶'},
+ {month:11, date:'11月11日', text:'去练习again 之后去吃晚餐 然后去IKEA again 跟你不会sien的 but walau 你一直摸我'},
+ {month:11, date:'11月14日', text:'你跟我讲其实你没有要牵手 ok 我是小丑 soli 这天虽然没有出去but我要写'},
+ {month:11, date:'11月16日', text:'虽然我很busy but很想你！！想要给你一个surprise 就决定做 carborana 给你 Yes Carborana'},
+ {month:11, date:'11月21日', text:'practice again'},
+ {month:11, date:'11月22日', text:'你叫我选一天 我选的就是今天'}
+];
+// 每条题目格式：日期: {question:'问题', answers:['答案','另一种写法'], thought:'心里话'}
+const memoryQuestions = {
+  "7月": {
+    "question": "我的车什么颜色",
+    "answers": [
+      "白色",
+      "白",
+      "white",
+      "白色的",
+      "白色车"
+    ],
+    "thought": "那时我真的本来不想参加的咯\n真的很忙很忙 真的很感谢Jx他们\n很energetic 一起很忙\n然后ailing和ty跟我练习一整天还赶FYP\n我在想如果我的asg跟以前两个猪队友一起\n我真的就没有时间参加\n然后我们就不会认识了！\n那时真的是我第一次注意到你\n因为你唱price tag很cute"
+  },
+  "8月": {
+    "question": "那天我要买一个东西 然后我问你去哪里找 那个东西是什么",
+    "answers": [
+      "airtag",
+      "air tag",
+      "猫的airtag",
+      "猫咪的airtag",
+      "tag",
+      "apple airtag",
+      "猫定位器",
+      "猫咪定位器",
+      "定位器",
+      "追踪器"
+    ],
+    "thought": "真的很谢谢你给我一堆free gift okay，cuz\n你是特地拿着了留着等我回来偷偷塞给我的\n根本就算小犯罪"
+  },
+  "9月23日": {
+    "question": "你猜为什么我要给你",
+    "answers": [
+      "2"
+    ],
+    "thought": "Ok啦 答案虽然真的是2\n但是也是我已经记得你了and有点好感才会想到你\n那时我也知道你有bf\n所有我真的只是想说给一给没什么问题\n反正winter也吃很慢\n等下我懒惰喂放到坏去\n所有我是完全没有expect你要积极回复我的那种",
+    "choices": [
+      "偷偷喜欢你，假假要跟你讲话",
+      "真的只是觉得要送回你，因为你给我free gift",
+      "想下毒给阿灰 哈哈哈哈"
+    ]
+  },
+  "在那之后": {
+    "question": "我的双眼皮是哪一边",
+    "answers": [
+      "左边",
+      "左",
+      "左眼",
+      "左眼睛",
+      "左边眼睛",
+      "left",
+      "left eye"
+    ],
+    "thought": "刚开始ig chat ok我承认我有故意把你的msg留到隔天才看\n因为我要留隔天继续chat\n加上刚认识 我不要太热情 哈哈哈哈"
+  },
+  "10月1日": {
+    "question": "这天我们去哪里吃",
+    "answers": [
+      "nibong tebal",
+      "nibongtebal",
+      "高渊",
+      "高淵",
+      "titibawah",
+      "titi bawah"
+    ],
+    "thought": "我觉得我们online chat那么多\n再不出去就要变网友料\n所有我就问看你 结果你on料\n而且当天我真的考虑要不要找其他人一起去\n因为我们本来全部人一起的\n过后只有我们2个人去会很suspicious\n但是事实证明也没人在意其实\n哈哈哈 然后那天比较紧张\n因为跟你不熟也是 我们makan料还不要回家咯\n去ikea从里面走到TMG"
+  },
+  "10月2日": {
+    "question": "你填你的猫什么名字给医生",
+    "answers": [
+      "Oon Ah Hui"
+    ],
+    "thought": "我觉得我们才认识第几天\n就一起带喵看病 很暧昧\nwalau 虽然是我提出的\nbut我觉得你会ok\n我好奇为什么你会on我的 跟我讲一下"
+  },
+  "10月7日": {
+    "question": "我去上厕所几次",
+    "answers": [],
+    "thought": "其实这天我觉得比较普通 因为看戏也不能讲话\n然后我们去吃烧烤 这样咯",
+    "acceptAny": true
+  },
+  "10月8日": {
+    "question": "我在哪一天确定喜欢你",
+    "answers": [
+      "4"
+    ],
+    "thought": "对 就是今天 我真的觉得我们可以一起走那么久\n很热的情况下 然后整个很狼狈那样\nbut还是可以聊得来 没有冷场 安静的时候\n也不会不舒服 是两个人很契合的表现\n这天过后我想了很久之后\n我也不知道你的想法是什么\n不知道你放下你的ex了没有\n不知道你对我的感觉是什么\n我们已经出去几次了 而且不是普通出去的那种\n我觉得我不想一直在猜\n一定要做一点什么东西了\n所以我决定跟你讲I like u",
+    "choices": [
+      "给你月饼的时候",
+      "第一次出去",
+      "早早就喜欢了",
+      "去水坝那一次"
+    ]
+  },
+  "10月12日": {
+    "question": "洗猫的店叫什么名！",
+    "answers": [
+      "catbyz"
+    ],
+    "thought": "所以你为什么要跑那么远来\n哈哈哈哈 这一天我开始发现我们呆在一起时间过很快咯\n因为本来讲3点多就要回去带阿灰\n结果一直走到5点多 你回家应该很塞爆"
+  },
+  "10月14日": {
+    "question": "谁唱《那些年》",
+    "answers": [
+      "Ralph"
+    ],
+    "thought": "其实到今天 我都觉得有其他人在的时候\n好像jesse，nat\n我会跟你互动比较拘谨\n因为我还是多多少少会去多想他们的看法\nuntil 1017之后"
+  },
+  "10月29日": {
+    "question": "我skate厉害吗",
+    "answers": [
+      "厉害",
+      "很厉害",
+      "超厉害",
+      "非常厉害",
+      "厉害啦",
+      "厉害咯",
+      "厉害啊",
+      "厉害的",
+      "yes",
+      "厉害！",
+      "很棒",
+      "棒",
+      "超棒",
+      "pro",
+      "厉害哦"
+    ],
+    "thought": "对 我是很厉害skate的\n那天时间真的过很快\n我们去很多地方咯 好像是2点到10点\nskate其实很累一下\n我真的很怕你跌倒 虽然我自己也一直要跌要跌\n全场粘着墙壁也是很好笑\n然后其实我觉得跟喜欢的人去skate结果不会skate好像很丢脸\nbut你没有给我这样的感觉！！and\n我也没有打算耍帅\n因为我真的不会😢晚上又去Q2走很久很久\n真的很爱走我们两个\n然后这天我开始会想拉着你\n怕你离我太远 尤其是人多的时候\nbut不可以 因为我们还没有在一起"
+  },
+  "10月30日": {
+    "question": "我的头发什么颜色",
+    "answers": [
+      "brown",
+      "棕色",
+      "咖啡色",
+      "choco",
+      "chocolate",
+      "褐色",
+      "棕",
+      "巧克力色",
+      "chocolate brown",
+      "深棕色",
+      "浅棕色"
+    ],
+    "thought": "唱歌比赛很好看 跟你看很开心\n今天也是会想拉着你因为怕你离我太远\nbut没有在一起我觉得不可以拉"
+  },
+  "11月4日": {
+    "question": "我的birthday(yymmdd)",
+    "answers": [
+      "030311"
+    ],
+    "thought": "今天在学校fine dine\n我其实真的很care被你的ex的朋友们看到咯\n因为我会想象他们怎样在背后gossip\n哈哈哈哈 but isok\n你不在乎我就ok了\ncuz一开始我还担心你会不会也不喜欢被他们看到\nbut你完全没有 我觉得很nice"
+  },
+  "11月5日": {
+    "question": "我们又在去哪里吃",
+    "answers": [
+      "Nibong Tebal",
+      "高渊",
+      "高淵",
+      "titi bawah",
+      "titibawah"
+    ],
+    "thought": "这天其实很好笑\n回家过后我post close friend里面有你\n然后jesse和jingxuan都在我的close friend but他们没有半点怀疑\n所以代表他们没有认真看我的story！！\n尤其是jesse\n我们去之前还跟他练习gor\n然后今天我驾车你一直打我\nwalau 我没有嫌弃ok\n以后继续but注意安全"
+  },
+  "11月6日": {
+    "question": "我们表演的第一首歌叫什么",
+    "answers": [
+      "The climb",
+      "climb"
+    ],
+    "thought": "yes 可以一起表演料 更加期待毕业典礼料\n到时可以帮我打扮打扮吗 啊哈哈哈哈"
+  },
+  "11月10日": {
+    "question": "你探店的店名",
+    "answers": [
+      "everbright wellness",
+      "everbright",
+      "ever bright",
+      "ever bright wellness"
+    ],
+    "thought": "发生很多事情！！ 我讲过了\n我本来就已经会想拉着你怕你离我太远\n然后今天你一直拉我 还有咯！\n我弯腰下来看东西 你还把手搭在我背后\n我真的在想你是要我牵你是吗\n一直动我\n然后我又想到前几天我才问你你有没有想牵手你讲有\n所以我就牵了 很cute你的hand"
+  },
+  "11月11日": {
+    "question": "我们吃什么今天",
+    "answers": [
+      "McDonald",
+      "mcd",
+      "McDonalds",
+      "McDonald's",
+      "麦当劳",
+      "麥當勞",
+      "maccas"
+    ],
+    "thought": "你今天越摸越过分！！but我也是没有嫌弃蛤\n只是我驾车所以注意安全okayy\n在IKEA搭你肩纯粹是我觉得可以\n所以soliii 你觉得over了\n然后其实我觉得你一直跟我讲光棍节快乐\n我不是很喜欢 因为我不懂要怎样回答u know\n因为我也是觉得我们的关系不是fren了\n然后又还没在一起 就很尴尬\n卡在中间酱 不适合讲这种\nbut后来我知道你其实只是讲爽\nthen我也觉得ok啦没问题"
+  },
+  "11月14日": {
+    "question": "我的眼睛什么颜色",
+    "answers": [
+      "棕色",
+      "brown",
+      "棕",
+      "咖啡色",
+      "褐色",
+      "深棕色",
+      "brown eyes"
+    ],
+    "thought": "我们没有出去\nbut你跟我讲你觉得我搭肩和牵手over了\n我在外面但是我很注重你讲的话okayy\n我很serious问你什么意思\nthen ya 前几天牵手搭你什么的\nI'm so sorry !!!\n看来是我想多了 很小丑!!!\nbut希望你不要觉得不舒服就好"
+  },
+  "11月16日": {
+    "question": "我的喵叫什么名",
+    "answers": [
+      "winter"
+    ],
+    "thought": "如果今天我不去找你的话\n就要等到21号了 很久 我不想等那么久\n所以我就想反正我都已经想要有一天煮东西拿去学校给你了\n要不然就选今天了啦\n顺便去library做东西\n但是很尴尬的是前几天你才问我觉得自己付出了多少\n然后今天刚好我要这样做\n我觉得看起来很像你讲了我才特地做\nbut我要回应一下 虽然我觉得我付出的不多\n不代表我没有想付出okayy！！and很多时候你也很积极回应我\n比如约你出去的时候\n我很appreciate！！🥹所以很多事情本来可以讲是付出的\n但是对我来讲那些更像是我们的基本罢了\n因为我们互相都有付出到\nThen我自己还有的一层顾虑\n比如我早早就想要煮food给你\n但是我觉得我特地拿过去\n很像我们已经在一起那样\n但是我们还没有在一起gor\n我就觉得说我应该要找个借口\n比如刚好有过去还是什么的"
+  },
+  "10月17日": {
+    "question": "我穿什么颜色的衣服",
+    "answers": [
+      "蓝色",
+      "蓝",
+      "blue"
+    ],
+    "thought": "我真的很紧张\n因为我跟你讲我有话跟你讲的时候\n我feel到你其实很不想知道\n我就知道你那个时候不会接受料！\n虽然是不可能不emo的\n但是我还是觉得那样舒服多了 不用再藏了\n然后我们那天聊了很多\n所以其实还是很happy的"
+  }
+};
+const album = {"9月23日": ["photos/0923-new.jpeg"], "10月2日": ["photos/1002-new.jpeg"], "10月7日": ["photos/1007.jpeg"], "10月8日": ["photos/1008.jpeg", "photos/1008(1).jpeg"], "10月17日": ["photos/1017.jpeg", "photos/1017(1).jpeg"], "10月29日": ["photos/1029.jpeg", "photos/1029(2).jpeg"], "10月30日": ["photos/1030.jpeg"], "11月4日": ["photos/1104.jpeg", "photos/1104(1).jpeg", "photos/1104(2).jpeg"], "11月5日": ["photos/1105.mp4"], "7月": ["photos/july.jpeg"]};
+const $=id=>document.getElementById(id);let opening=false,timer,unlocked=false;
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+const monthNames={7:'七月',8:'八月',9:'九月',10:'十月',11:'十一月'};
+function render(){
+ const timeline=$('timeline');timeline.replaceChildren();
+ for(const month of [7,8,9,10,11]){
+  if((month===11&&!unlocked)||(unlocked&&month<10))continue;
+  const section=document.createElement('section');section.className='timeline-month';section.id='month-'+month;
+  const title=document.createElement('h3');title.textContent=monthNames[month];title.tabIndex=-1;section.append(title);
+  const list=document.createElement('ol');list.className='timeline-list';
+  memories.filter(memory=>memory.month===month && (unlocked ? memories.indexOf(memory)>10 : memories.indexOf(memory)<=10)).forEach(memory=>{
+   const item=document.createElement('li');item.className='timeline-entry';item.id='memory-'+memories.indexOf(memory);
+   const date=document.createElement('span');date.className='timeline-date';date.textContent=memory.date;
+   const interactive=Boolean(memoryQuestions[memory.date])||['10月17日','11月22日'].includes(memory.date);const text=document.createElement(interactive?'button':'p');if(interactive){text.type='button';text.addEventListener('click',()=>openMemoryQuestion(memory))}text.className=interactive?'memory-sentence':'memory-static';text.textContent=memory.text;item.append(date,text);
+   if(memory.date==='11月22日'){
+    item.classList.add('special-entry');date.textContent='11.22';
+    const button=document.createElement('button');button.className='text-button';button.textContent='next →';button.addEventListener('click',openConfession);item.append(button);list.append(item);return;
+   }
+   if(memory.date==='10月17日'){
+    item.classList.add('special-entry');date.textContent='10.17';text.textContent=memory.text;
+    const button=document.createElement('button');button.className='text-button';button.textContent='next->';button.addEventListener('click',openSpecial);item.append(button);list.append(item);return;
+   }
+   const index=memories.indexOf(memory);const number=String(index+1).padStart(2,'0');
+   const sources=album[memory.date] || (memory.photo ? [memory.photo] : []);
+   sources.forEach((src,mediaIndex)=>{
+    const window=document.createElement('div');window.className='photo-window';
+    const figure=document.createElement('figure');figure.className='memory-photo';figure.dataset.direction=(index+mediaIndex)%2===0?'1':'-1';
+    if(src){
+     const isVideo=/\.mp4$/i.test(src);const media=document.createElement(isVideo?'video':'img');
+     if(isVideo){media.controls=true;media.playsInline=true;media.preload='metadata';media.setAttribute('aria-label',memory.date+'的视频')}
+     else{media.alt=memory.date+'的回忆照片 '+(mediaIndex+1);media.loading='lazy';media.decoding='async'}
+     media.src=src;figure.append(media);
+    }else{
+     const placeholder=document.createElement('div');placeholder.className='photo-placeholder';placeholder.textContent='这一天的照片 · 待加入';figure.append(placeholder);
+    }
+    const caption=document.createElement('figcaption');caption.textContent=memory.date+(sources.length>1?' · '+(mediaIndex+1)+' / '+sources.length:'');
+    figure.append(caption);window.append(figure);item.append(window);
+   });list.append(item);
+  });section.append(list);timeline.append(section);
+ }
+}
+const quiz=document.createElement('dialog');quiz.className='memory-dialog';quiz.setAttribute('aria-labelledby','quiz-title');
+quiz.innerHTML=`<button class="back" id="quiz-close" aria-label="关闭回忆问题">关闭 ×</button><h2 id="quiz-title"></h2><p id="quiz-question"></p><div id="quiz-options" class="responses" hidden></div><form id="quiz-form"><label for="quiz-answer">你的答案</label><input id="quiz-answer" autocomplete="off" required maxlength="300"><button class="text-button" type="submit" aria-label="提交答案">→</button></form><p id="quiz-feedback" role="status"></p><div id="quiz-thought" hidden><p id="quiz-thought-text"></p></div><button class="text-button" id="quiz-continue" hidden></button>`;
+document.body.append(quiz);
+let activeMemory=null,activeQuestion=null;
+const normalizeAnswer=text=>text.normalize('NFKC').toLocaleLowerCase().replace(/\s+/gu,'');
+function revealThought(){
+ $('quiz-options').hidden=true;$('quiz-form').hidden=true;$('quiz-question').hidden=true;$('quiz-feedback').textContent='';$('quiz-thought').hidden=false;$('quiz-thought-text').textContent=activeQuestion.thought;
+ const specialDate=false;$('quiz-continue').hidden=!specialDate;$('quiz-continue').textContent=activeMemory.date==='10月17日'?'next->':'next →';
+}
+function openMemoryQuestion(memory,insideSpecial=false){
+ if(memory.date==='11月22日'){openConfession();return}
+ if(memory.date==='10月17日'&&!insideSpecial){openSpecial();return}
+ if(!memoryQuestions[memory.date])return;
+ activeMemory=memory;activeQuestion=memoryQuestions[memory.date];$('quiz-title').textContent=memory.date;
+ $('quiz-answer').value='';$('quiz-feedback').textContent='';$('quiz-thought').hidden=true;$('quiz-continue').hidden=true;$('quiz-question').hidden=false;
+ const ready=activeQuestion&&activeQuestion.question&&(activeQuestion.acceptAny||activeQuestion.answers?.length)&&activeQuestion.thought;
+ $('quiz-options').replaceChildren();$('quiz-options').hidden=!activeQuestion.choices;
+ if(activeQuestion.choices){activeQuestion.choices.forEach((label,i)=>{const button=document.createElement('button');button.type='button';button.className='response';button.textContent=(i+1)+'. '+label;button.addEventListener('click',()=>{if(activeQuestion.answers.includes(String(i+1)))revealThought();else $('quiz-feedback').textContent='好像不是哦，再想一下？'});$('quiz-options').append(button)})}
+ $('quiz-form').hidden=!ready||Boolean(activeQuestion.choices);$('quiz-question').textContent=ready?activeQuestion.question:'这一天的问题和心里话还在准备中。';
+ quiz.showModal();
+}
+$('quiz-close').addEventListener('click',()=>quiz.close());
+$('quiz-form').addEventListener('submit',event=>{
+ event.preventDefault();if(!activeQuestion)return;const answer=normalizeAnswer($('quiz-answer').value);
+ if(!answer){$('quiz-feedback').textContent='先写下你的答案吧。';return}
+ if(activeQuestion.acceptAny||activeQuestion.answers.some(value=>normalizeAnswer(value)===answer)){revealThought()}
+ else{$('quiz-feedback').textContent='好像不是哦，再想一下？';$('quiz-answer').focus()}
+});
+$('quiz-continue').addEventListener('click',()=>{const date=activeMemory.date;quiz.close();if(date==='10月17日')openSpecial();else if(date==='11月22日')openConfession()});
+render();
+const special=document.createElement('section');special.id='special-day';special.className='stationery special-day';special.hidden=true;
+special.innerHTML='<button class="back" id="special-back">← 回到时间线</button><h2 tabindex="-1">10.17</h2><button type="button" id="special-question" class="special-subtitle memory-sentence">这天Batu Ferringhi下雨walau 没有日落 我的打卡板不见了</button><div id="special-memories"></div><button class="text-button" id="special-next">next</button>';
+$('reading').after(special);
+$('special-question').addEventListener('click',()=>openMemoryQuestion(memories.find(m=>m.date==='10月17日'),true));
+function openSpecial(){
+ document.querySelectorAll('video').forEach(v=>v.pause());
+ const content=$('special-memories');content.replaceChildren();
+ const files=['photos/1017(1).jpeg','photos/1017.jpeg'];
+ files.forEach((src,i)=>{const img=document.createElement('img');img.src=src;img.alt=i===0?'10月17日，海边的你':'10月17日，海边的火舞';content.append(img);});
+ $('reading').hidden=true;special.hidden=false;special.querySelector('h2').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});
+}
+function returnToTimeline(continueStory){
+ unlocked=continueStory;special.hidden=true;$('reading').hidden=false;render();
+ syncChapters();
+ const target=$('memory-'+(continueStory?11:10));target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({behavior:'instant',block:'start'});schedulePhotos();
+}
+$('special-back').addEventListener('click',()=>returnToTimeline(false));
+$('special-next').addEventListener('click',()=>returnToTimeline(true));
+const earlier=document.createElement('button');earlier.className='back';earlier.textContent='10.17之前';earlier.hidden=true;
+$('reading').querySelector('.reading-top').after(earlier);
+earlier.addEventListener('click',()=>returnToTimeline(false));
+function syncChapters(){
+ document.querySelectorAll('a.chapter').forEach(link=>{const month=Number(link.getAttribute('href').split('-')[1]);link.hidden=unlocked?month<10:month===11});
+ earlier.hidden=!unlocked;
+}
+syncChapters();
+const confession=document.createElement('section');confession.id='confession';confession.className='stationery special-day';confession.hidden=true;
+confession.innerHTML=`<button class="back" id="confession-back">← 回到我们的时间线</button>
+<h2 tabindex="-1">11.22</h2>
+<div class="confession-copy"><p>我有很多很多话想跟你讲！<br>我们相处的时间也已经不算很短了<br>虽然没有吵过架<br>但是也已经看到要磨合的地方料<br>我觉得我们的目标都一样<br>不想要随便开始一段关系<br>也希望可以走长长久久<br>所以今天我讲的不会全部都是好话<br>我发现到我的不足<br>然后也有我觉得不安全感的地方想跟你讲</p><p>你先选 我再来讲！</p><h3>愿意做我女朋友吗？！😳</h3></div>
+<button class="text-button" id="reveal-choices" aria-expanded="false" aria-controls="confession-choices">好好选pls 只能选一次罢了</button>
+<div class="responses" id="confession-choices" aria-label="你的回应" hidden><button class="response" id="say-yes" aria-pressed="false">愿意 ❤️</button><button class="response" id="think-about-it" aria-pressed="false">我还没想好</button></div>
+<div class="confession-hearts" aria-hidden="true" hidden><span>♡</span><span>♡</span><span>♡</span></div>
+<p class="answer" id="confession-answer" role="status" aria-live="polite"></p>
+<button class="text-button" id="confession-next" hidden>下一页 →</button>
+`;
+special.after(confession);
+const inPerson=document.createElement('section');inPerson.id='in-person';inPerson.className='stationery special-day';inPerson.hidden=true;
+inPerson.innerHTML=`<button class="back" id="in-person-back">← 回到上一页</button><div class="confession-copy"><h3 tabindex="-1">ok可以跟我讲话了</h3><p>我要跟你讲多多</p></div>`;
+confession.after(inPerson);
+$('confession-next').addEventListener('click',()=>{if($('say-yes').getAttribute('aria-pressed')!=='true')return;confession.hidden=true;inPerson.hidden=false;inPerson.querySelector('h3').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})});
+$('in-person-back').addEventListener('click',()=>{inPerson.hidden=true;confession.hidden=false;$('confession-next').focus({preventScroll:true});$('confession-next').scrollIntoView({behavior:'instant',block:'center'})});
+
+function openConfession(){document.querySelectorAll('video').forEach(v=>v.pause());$('reading').hidden=true;confession.hidden=false;confession.querySelector('h2').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}
+$('confession-back').addEventListener('click',()=>{confession.hidden=true;$('reading').hidden=false;const target=$('memory-22');target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({behavior:'instant',block:'start'});schedulePhotos()});
+const answerKey='our-story-1122-answer-v1';
+$('reset-answer').addEventListener('click',()=>{
+ if($('cover').hidden||opening)return;
+ try{
+  localStorage.removeItem(answerKey);
+  savedAnswer=null;
+  $('reveal-choices').hidden=false;$('reveal-choices').setAttribute('aria-expanded','false');$('confession-choices').hidden=true;
+  for(const id of ['say-yes','think-about-it']){const button=$(id);button.disabled=false;button.hidden=false;button.setAttribute('aria-pressed','false')}
+  $('confession-answer').textContent='';$('confession-next').hidden=true;confession.querySelector('.confession-hearts').hidden=true;
+  alert('已重置，可以重新选择。');
+ }catch(error){alert('重置失败，请检查浏览器是否允许本地存储。')}
+});
+
+let savedAnswer=null;
+function readAnswer(){const value=localStorage.getItem(answerKey);return ['yes','think'].includes(value)?value:null}
+function showSavedAnswer(){
+ if(!savedAnswer)return;
+ const yes=savedAnswer==='yes';
+ $('reveal-choices').hidden=true;$('confession-choices').hidden=false;
+ $('say-yes').disabled=true;$('think-about-it').disabled=true;
+ $('say-yes').hidden=!yes;$('think-about-it').hidden=yes;
+ $('say-yes').setAttribute('aria-pressed',String(yes));$('think-about-it').setAttribute('aria-pressed',String(!yes));
+ $('confession-answer').textContent=yes?'YAY ❤️':'so sad EMO';
+ confession.querySelector('.confession-hearts').hidden=!yes;$('confession-next').hidden=!yes;
+}
+try{
+ const resetKey='our-story-local-reset-20261120-1';
+ if(location.protocol==='file:' && localStorage.getItem(resetKey)!=='done'){
+  localStorage.removeItem(answerKey);localStorage.setItem(resetKey,'done');
+ }
+ savedAnswer=readAnswer();showSavedAnswer()
+}catch(error){$('confession-answer').textContent='浏览器暂时无法保存选择，请允许本地存储后再继续。'}
+$('reveal-choices').addEventListener('click',()=>{$('reveal-choices').hidden=true;$('reveal-choices').setAttribute('aria-expanded','true');$('confession-choices').hidden=false;$('say-yes').focus()});
+function answerConfession(yes){
+ try{
+  savedAnswer=readAnswer()||savedAnswer;
+  if(savedAnswer){showSavedAnswer();return}
+  const choice=yes?'yes':'think';localStorage.setItem(answerKey,choice);
+  if(readAnswer()!==choice)throw Error('Could not save');
+  savedAnswer=choice;showSavedAnswer();
+ }catch(error){$('confession-answer').textContent='这次选择还没有保存。请允许浏览器使用本地存储，再试一次。'}
+}
+window.addEventListener('storage',event=>{if(event.key===answerKey){try{savedAnswer=readAnswer()||savedAnswer;showSavedAnswer()}catch(error){}}});
+$('say-yes').addEventListener('click',()=>answerConfession(true));$('think-about-it').addEventListener('click',()=>answerConfession(false));
+let scrollFrame=0;
+function updatePhotos(){
+ scrollFrame=0;if($('reading').hidden)return;
+ document.querySelectorAll('.memory-photo').forEach(photo=>{
+  const top=photo.parentElement.getBoundingClientRect().top;
+  const progress=reduced.matches?1:Math.max(0,Math.min(1,(innerHeight*.96-top)/(innerHeight*.42)));
+  const eased=1-Math.pow(1-progress,3);
+  photo.style.setProperty('--slide',((1-eased)*100*Number(photo.dataset.direction))+'px');
+  photo.style.setProperty('--photo-opacity',String(.15+.85*eased));
+ });
+}
+function schedulePhotos(){if(!scrollFrame)scrollFrame=requestAnimationFrame(updatePhotos)}
+window.addEventListener('scroll',schedulePhotos,{passive:true});window.addEventListener('resize',schedulePhotos);
+reduced.addEventListener('change',schedulePhotos);
+function openLetter(){if(opening)return;opening=true;$('reset-answer').disabled=true;$('cover').classList.add('opening');$('seal').setAttribute('aria-expanded','true');timer=setTimeout(()=>{$('cover').hidden=true;$('reading').hidden=false;render();schedulePhotos();$('page-content').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});opening=false},reduced.matches?0:850)}
+$('seal').addEventListener('click',openLetter);
+$('close-letter').addEventListener('click',()=>{document.querySelectorAll('video').forEach(video=>video.pause());clearTimeout(timer);opening=false;$('reading').hidden=true;$('cover').hidden=false;$('reset-answer').disabled=false;$('cover').classList.remove('opening');$('seal').setAttribute('aria-expanded','false');$('seal').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})});
+document.querySelectorAll('.chapter').forEach(link=>link.addEventListener('click',event=>{
+ event.preventDefault();const target=document.querySelector(link.getAttribute('href'));if(!target)return;
+ target.querySelector('h3').focus({preventScroll:true});target.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});
+}));
+</script>
+</body>
+</html>
